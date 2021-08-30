@@ -1,7 +1,11 @@
+import Nav from "./views/topNav/nav";
 
 function App() {
   return (
-    <div>Hola</div>
+    <div>
+      <Nav/>
+      <p>Hola soy App</p>
+    </div>
   );
 }
 
