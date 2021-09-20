@@ -1,4 +1,3 @@
-import { Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 
 import React from 'react'; 
@@ -10,12 +9,12 @@ const useStyles = makeStyles((theme) => ({
     offset: {
         marginTop: '250px'
     },
-    container :{
+    container:{
         display:'flex',
-        '& .MuiContainer-maxWidthLg' : {
+        margin: '10px',
+        '& .MuiContainer-maxWidthLg': {
             maxWidth: 'inherit'
         }
-
     },
   }));
 
@@ -27,10 +26,10 @@ export default function Home () {
         <>
         <Header/>
         <div className={classes.offset}></div>
-        <Container className={classes.container}>
+        <div className={classes.container}>
             <Posts/>
             <Sidebar/>
-        </Container>
+        </div>
         </>
     )
 }
