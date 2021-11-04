@@ -7,6 +7,9 @@ import { Box } from '@mui/system';
 import { makeStyles, TextField } from '@material-ui/core';
 import Button from '@mui/material/Button';
 
+import img from '../../assests/img/alfons-morales-YLSwjSy7stw-unsplash.jpg'
+
+
 
 const useStyles = makeStyles((theme) => ({
     form: {
@@ -30,6 +33,13 @@ const useStyles = makeStyles((theme) => ({
         marginTop: '25px',
         display: 'flex',
         justifyContent: 'center'
+    },
+    img: {
+        height: '250px',
+        borderRadius: '10px',
+        objectFit: 'none',
+        width: '100%',
+        marginBottom: '25px'
     }
 }));
 
@@ -44,6 +54,9 @@ export default function Write () {
             maxWidth: '100%', }}
             className={classes.form}
         >
+        <div>
+            <img src={img} alt='img' className={classes.img} />
+        </div>
         <div className={classes.containerTitle}>
             <label htmlFor="fileInput">
                 <AddIcon style={{marginTop: '19px'}}/>
