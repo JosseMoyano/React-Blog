@@ -1,4 +1,5 @@
 import React from 'react'; 
+import { useHistory } from 'react-router-dom';
 
 import { Button, makeStyles, TextField, Typography } from '@material-ui/core';
 import Box from '@mui/material/Box';
@@ -38,6 +39,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Login () {
 
     const classes = useStyles();
+    const history = useHistory()
+
 
     return (
         <div className={classes.login}>
@@ -67,7 +70,7 @@ export default function Login () {
                 </div>
             </Box>
             <div className={classes.registerboton}>
-                <Button variant="outlined">Resgiter</Button>
+                <Button variant="outlined" onClick={()=> history.push('/register')}>Resgiter</Button>
             </div>
         </div>
     )

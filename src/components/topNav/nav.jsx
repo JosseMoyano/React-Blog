@@ -1,5 +1,6 @@
 import React from 'react'; 
 import ElevationScroll from './components/elevationScroll';
+import { useHistory } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
@@ -83,6 +84,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Nav (props) {
 
     const classes = useStyles();
+    const user = false; 
+    const history = useHistory()
 
     return (
         <>
@@ -97,28 +100,55 @@ export default function Nav (props) {
                             <InstagramIcon/>
                         </Container>
                         <Container className={classes.buttonMenu}>
-                            <Button color="inherit">Home</Button>
+                            <Button color="inherit" onClick={()=> history.push('/')}>Home</Button>
                             <Button color="inherit">About</Button>
-                            <Button color="inherit">Contact</   Button>
-                            <Button color="inherit">Write</Button>
-                            <Button color="inherit">LogOut</Button>
+                            <Button color="inherit">Contact</Button>
+                            <Button color="inherit" onClick={()=> history.push('/write')}>Write</Button>
+                            { user ? <Button color="inherit">LogOut</Button> : null}
+                            
                         </Container>
-                            <div className={classes.search}>
-                                <div className={classes.searchIcon}>
-                                  <SearchIcon />
-                                </div>
-                                <InputBase
-                                  placeholder="Search…"
-                                  classes={{
-                                    root: classes.inputRoot,
-                                    input: classes.inputInput,
-                                  }}
-                                  inputProps={{ 'aria-label': 'search' }}
-                                />
-                            </div>
-                            <div className={classes.rootAvatar}>
-                                <Avatar alt="User" src='' />
-                            </div>    
+                            
+                            {
+                              user ? (
+                                <>
+                                  <div className={classes.search}>
+                                    <div className={classes.searchIcon}>
+                                      <SearchIcon />
+                                    </div>
+                                    <InputBase
+                                    placeholder="Search…"
+                                    classes={{
+                                      root: classes.inputRoot,
+                                      input: classes.inputInput,
+                                    }}
+                                    inputProps={{ 'aria-label': 'search' }}
+                                    />
+                                  </div>
+                                  <div className={classes.rootAvatar}>
+                                    < Avatar alt="User" src='' />
+                                  </div> 
+                                </>
+                              ) : (
+                                <>
+                                <div className={classes.search}>
+                                    <div className={classes.searchIcon}>
+                                      <SearchIcon />
+                                    </div>
+                                    <InputBase
+                                    placeholder="Search…"
+                                    classes={{
+                                      root: classes.inputRoot,
+                                      input: classes.inputInput,
+                                    }}
+                                    inputProps={{ 'aria-label': 'search' }}
+                                    />
+                                  </div>
+                                  <Button color="inherit" onClick={()=> history.push('/login')}>Login</Button>
+                                  <Button color="inherit" onClick={()=> history.push('/register')}>Register</Button>
+                                </>
+                              )
+                            }
+                               
                     </Toolbar>
                 </AppBar>
             </ElevationScroll>
