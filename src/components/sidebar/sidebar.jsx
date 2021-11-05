@@ -16,8 +16,9 @@ const useStyles = makeStyles((theme) => ({
         flex: 3,
         margin: '20px',
         paddingBottom: '30px',
-        backgroundColor: '#fdfbfb',
+        backgroundColor: '#f8edeb85',
         borderRadius: '20px',
+        padding: '8px'
     },
     items: {
         display: 'flex',

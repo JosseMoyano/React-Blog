@@ -4,21 +4,23 @@ import Container  from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/styles';
 import { Typography } from '@material-ui/core';
 
-import img from '../../assests/img/alfons-morales-YLSwjSy7stw-unsplash.jpg'
+import img from '../../assests/img/retrosupply-jLwVAUtLOAQ-unsplash.jpg'
 
 const useStyles = makeStyles((theme) => ({
     img:{    
         width: '100%',
-        marginTop: '-280px',
+        marginTop: '-500px',
+        // objectFit: 'cover'
     },
     titulo:{
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         marginTop: '-27%',
-        color: 'wheat',
-        backgroundColor: '#000000e3',
+        color: 'black',
+        backgroundColor: '#d8e2dc69',
         width: 'auto',
+        borderRadius: '30px'
     },
     container:{
         margin: 0,

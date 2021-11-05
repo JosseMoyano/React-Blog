@@ -1,12 +1,40 @@
 import React from 'react'; 
 import { useHistory } from 'react-router-dom';
 
-import { Button, makeStyles, TextField, Typography } from '@material-ui/core';
+import { Button, makeStyles, TextField, Typography, createTheme } from '@material-ui/core';
 import Box from '@mui/material/Box';
 
 import img from '../../assests/img/joanna-kosinska-7ACuHoezUYk-unsplash.jpg'
+import { ThemeProvider } from '@material-ui/core/styles';
 
-
+const theme = createTheme({
+	palette: {
+		primary: {
+			main: '#FEC89A',
+			light: '#ffc4ff',
+			dark: '#9c64a6',
+			contrastText: '#fff',
+		},
+		secondary: {
+			main: '#FEC89A',
+			light: '#ffc4ff',
+			dark: '#9c64a6',
+			contrastText: '#fff',
+		},
+	},
+    overrides:{
+        MuiFilledInput:{
+            root:{
+                backgroundColor: 'white'
+            }
+        },
+        MuiTextField:{
+            root:{
+                backgroundColor: 'white',
+            }
+        }
+    }
+});
 
 const useStyles = makeStyles((theme) => ({
     login:{
@@ -43,6 +71,8 @@ export default function Login () {
 
 
     return (
+        <ThemeProvider theme={theme}>
+
         <div className={classes.login}>
             <Typography variant="h4" color="initial" className={classes.loginTitle}>Login</Typography>
             <Box
@@ -55,23 +85,24 @@ export default function Login () {
                     <TextField
                     variant="filled"
                     label="Email"
-                    placeholder="Enter your email..."
+                    // placeholder="Enter your email..."
                     />  
                 </div>
                 <div>
                     <TextField
                     variant="filled"
                     label="Password"
-                    placeholder="Enter your password..."
+                    // placeholder="Enter your password..."
                     />  
                 </div>
                 <div className={classes.boton}>
-                    <Button variant="outlined" style={{width: '94%'}}>Login</Button>
+                    <Button variant="outlined" style={{width: '94%', backgroundColor: '#FEC89A', color: 'black'}}>Login</Button>
                 </div>
             </Box>
             <div className={classes.registerboton}>
-                <Button variant="outlined" onClick={()=> history.push('/register')}>Resgiter</Button>
+                <Button variant="outlined" onClick={()=> history.push('/register')} style={{width: '94%', backgroundColor: '#FEC5BB', color: 'black'}}>Register</Button>
             </div>
         </div>
+        </ThemeProvider>
     )
 }

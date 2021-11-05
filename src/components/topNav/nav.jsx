@@ -7,7 +7,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Button from '@material-ui/core/Button';
-import { alpha, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import InputBase from '@material-ui/core/InputBase';
 
@@ -30,13 +30,23 @@ const useStyles = makeStyles((theme) => ({
           margin: theme.spacing(1),
         },
       },
+    appbar: {
+      // '& MuiAppBar-colorPrimary':{
+        backgroundColor: '#F8EDEB',
+        color: 'black'
+      // }
+    },
     search: {
       position: 'relative',
       borderRadius: theme.shape.borderRadius,
-      backgroundColor: alpha(theme.palette.common.white, 0.15),
-      '&:hover': {
-        backgroundColor: alpha(theme.palette.common.white, 0.25),
-      },
+      backgroundColor: 'white',
+      // '&:hover': {
+      //   backgroundColor: '#E8E8E4',
+      // },
+      // backgroundColor: alpha(theme.palette.common.white, 0.15),
+      // '&:hover': {
+      //   backgroundColor: alpha(theme.palette.common.white, 0.25),
+      // },
       marginRight: theme.spacing(2),
       marginLeft: 0,
       width: '100%',
@@ -91,8 +101,8 @@ export default function Nav (props) {
         <>
             <CssBaseline />
             <ElevationScroll {...props}>
-                <AppBar>
-                    <Toolbar>
+                <AppBar >
+                    <Toolbar className={classes.appbar}>
                         <Container className={classes.buttonRedes}>
                             <FacebookIcon/>
                             <TwitterIcon/>

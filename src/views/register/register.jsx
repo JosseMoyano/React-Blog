@@ -1,12 +1,42 @@
 import React from 'react'; 
 import { useHistory } from 'react-router-dom';
 
-import { Button, makeStyles, TextField, Typography } from '@material-ui/core';
+import { Button, createTheme, makeStyles, TextField, Typography } from '@material-ui/core';
 import Box from '@mui/material/Box';
 
+// import img from '../../assests/img/kelly-sikkema-Rq1MLxP5RgI-unsplash.jpg'
 import img from '../../assests/img/joanna-kosinska-7ACuHoezUYk-unsplash.jpg'
+import { ThemeProvider } from '@material-ui/core/styles';
 
 
+const theme = createTheme({
+	palette: {
+		primary: {
+			main: '#FEC89A',
+			light: '#ffc4ff',
+			dark: '#9c64a6',
+			contrastText: '#fff',
+		},
+		secondary: {
+			main: '#FEC89A',
+			light: '#ffc4ff',
+			dark: '#9c64a6',
+			contrastText: '#fff',
+		},
+	},
+    overrides:{
+        MuiFilledInput:{
+            root:{
+                backgroundColor: 'white'
+            }
+        },
+        MuiTextField:{
+            root:{
+                backgroundColor: 'white'
+            }
+        }
+    }
+});
 
 const useStyles = makeStyles((theme) => ({
     register:{
@@ -33,6 +63,9 @@ const useStyles = makeStyles((theme) => ({
         position: 'absolute',
         top: '80px',
         right: '20px'
+    },
+    registerForm:{
+        // backgroundColor: '#F8EDEB'
     }
 }));
 
@@ -43,6 +76,8 @@ export default function Register () {
 
 
     return (
+        <ThemeProvider theme={theme}>
+
         <div className={classes.register}>
             <Typography variant="h4" color="initial" className={classes.registerTitle}>Register</Typography>
             <Box
@@ -56,7 +91,7 @@ export default function Register () {
                     variant="filled"
                     label="Username"
                     type='text'
-                    placeholder="Enter your Username..."
+                    // placeholder="Enter your Username..."
                     />  
                 </div>
                 <div>
@@ -64,7 +99,7 @@ export default function Register () {
                     variant="filled"
                     label="Email"
                     type='email'
-                    placeholder="Enter your email..."
+                    // placeholder="Enter your email..."
                     />  
                 </div>
                 <div>
@@ -72,16 +107,17 @@ export default function Register () {
                     variant="filled"
                     label="Password"
                     type='password'
-                    placeholder="Enter your password..."
+                    // placeholder="Enter your password..."
                     />  
                 </div>
                 <div className={classes.boton}>
-                    <Button variant="outlined" style={{width: '94%'}}>Register</Button>
+                    <Button variant="outlined" style={{width: '94%', backgroundColor: '#FEC89A', color: 'black'}}>Register</Button>
                 </div>
             </Box>
             <div className={classes.loginboton}>
-                <Button variant="outlined" onClick={()=> history.push('/login')}>Login</Button>
+                <Button variant="outlined" onClick={()=> history.push('/login')} style={{width: '94%', backgroundColor: '#FEC5BB', color: 'black'}}>Login</Button>
             </div>
         </div>
+        </ThemeProvider>
     )
 }
